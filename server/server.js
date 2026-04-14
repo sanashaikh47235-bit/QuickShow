@@ -25,10 +25,9 @@ app.use(
      client: inngest, 
      functions,
      signingKey: process.env.INNGEST_SIGNING_KEY, 
-     validateSignature: false,
     })
     );
 
-    console.log("SIGNING KEY:", process.env.INNGEST_SIGNING_KEY);
+
 
 app.listen(port, ()=> console.log(`Server listening at http://localhost:${port}`));
