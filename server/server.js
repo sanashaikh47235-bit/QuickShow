@@ -19,6 +19,14 @@ app.use(clerkMiddleware())
 
 //API Routes
 app.get('/', (req, res)=> res.send('Server is Live!'))
-app.use('/api/inngest', serve({client: inngest, functions }))
+app.use('/api/inngest',
+     serve({
+     client: inngest, 
+     functions,
+     signingKey: process.env.INNGEST_SIGNING_KEY, 
+    })
+    );
+
+    console.log("SIGNING KEY:", process.env.INNGEST_SIGNING_KEY);
 
 app.listen(port, ()=> console.log(`Server listening at http://localhost:${port}`));
