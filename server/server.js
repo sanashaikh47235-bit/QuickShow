@@ -19,11 +19,13 @@ app.use(clerkMiddleware())
 
 //API Routes
 app.get('/', (req, res)=> res.send('Server is Live!'))
-app.use('/api/inngest',
+app.use(
+    '/api/inngest',
      serve({
      client: inngest, 
      functions,
      signingKey: process.env.INNGEST_SIGNING_KEY, 
+     validateSignature: false,
     })
     );
 
